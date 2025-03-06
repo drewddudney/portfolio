@@ -61,11 +61,11 @@
     "@emotion/is-prop-valid": "latest",
     "prop-types": "latest",
     "framer-motion": "latest",
-    "react-type-animation": "latest",
     "react-intersection-observer": "latest",
     "react-particles": "latest",
     "tsparticles-engine": "latest",
-    "tsparticles-slim": "latest"
+    "tsparticles-slim": "latest",
+    "react-type-animation": "latest"
   },
   "devDependencies": {
     "@types/node": "^22",

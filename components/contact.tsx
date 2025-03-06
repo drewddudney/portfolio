@@ -39,34 +39,39 @@ export default function Contact() {
           </div>
 
           <div className="grid gap-8 md:gap-12">
-            {contactItems.map((item, index) => (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                transition={{ delay: 0.2 * index, duration: 0.6 }}
-                className="flex flex-col md:flex-row items-center text-center md:text-left gap-4"
-              >
-                <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
-                  <item.icon className="h-6 w-6" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold">{item.title}</h3>
-                  {item.href ? (
-                    <a
-                      href={item.href}
-                      target={item.title === "LinkedIn" ? "_blank" : undefined}
-                      rel={item.title === "LinkedIn" ? "noopener noreferrer" : undefined}
-                      className="text-lg text-muted-foreground hover:text-primary transition-colors"
-                    >
-                      {item.content}
-                    </a>
-                  ) : (
-                    <p className="text-lg text-muted-foreground">{item.content}</p>
-                  )}
-                </div>
-              </motion.div>
-            ))}
+            {contactItems.map((item, index) => {
+              const ContactWrapper = item.href ? "a" : "div"
+              const wrapperProps = item.href
+                ? {
+                    href: item.href,
+                    target: item.title === "LinkedIn" ? "_blank" : undefined,
+                    rel: item.title === "LinkedIn" ? "noopener noreferrer" : undefined,
+                    className:
+                      "flex flex-col md:flex-row items-center text-center md:text-left gap-4 hover:bg-background/80 p-4 rounded-lg transition-colors cursor-pointer",
+                  }
+                : { className: "flex flex-col md:flex-row items-center text-center md:text-left gap-4 p-4" }
+
+              return (
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                  transition={{ delay: 0.2 * index, duration: 0.6 }}
+                >
+                  <ContactWrapper {...wrapperProps}>
+                    <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
+                      <item.icon className="h-6 w-6" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold">{item.title}</h3>
+                      <p className="text-lg text-muted-foreground group-hover:text-primary transition-colors">
+                        {item.content}
+                      </p>
+                    </div>
+                  </ContactWrapper>
+                </motion.div>
+              )
+            })}
           </div>
         </motion.div>
       </div>
