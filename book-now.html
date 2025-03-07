@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Photo Booth - Austin 360 PhotoBooth</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-foreground: #ffffff;
+            --secondary: #10b981;
+            --secondary-foreground: #ffffff;
+            --background: #ffffff;
+            --foreground: #1f2937;
+            --muted: #f3f4f6;
+            --muted-foreground: #6b7280;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background);
+            color: var(--foreground);
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            transition: all 0.2s;
+        }
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--primary-foreground);
+        }
+        .btn-primary:hover {
+            opacity: 0.9;
+        }
+        .input, .select, .textarea {
+            width: 100%;
+            border: 1px solid #d1d5db;
+            border-radius: 0.375rem;
+            padding: 0.5rem;
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+            transition: border-color 0.2s;
+        }
+        .input:focus, .select:focus, .textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            ring: 2px solid var(--primary);
+        }
+        .label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+    <header class="bg-primary text-primary-foreground py-16 md:py-24">
+        <div class="container mx-auto px-4 md:px-6 text-center">
+            <h1 class="text-3xl md:text-5xl font-bold mb-4">Book Your Photo Booth</h1>
+            <p class="text-xl max-w-2xl mx-auto">Fill out the form below to check availability and book your photo booth experience</p>
+        </div>
+    </header>
+
+    <main class="flex-grow py-16 md:py-24">
+        <div class="container mx-auto px-4 md:px-6">
+            <form id="booking-form" class="max-w-2xl mx-auto space-y-8">
+                <div class="space-y-4">
+                    <h2 class="text-2xl font-bold">Contact Information</h2>
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div>
+                            <label for="first-name" class="label">First Name</label>
+                            <input type="text" id="first-name" name="first-name" class="input" required>
+                        </div>
+                        <div>
+                            <label for="last-name" class="label">Last Name</label>
+                            <input type="text" id="last-name" name="last-name" class="input" required>
+                        </div>
+                    </div>
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div>
+                            <label for="email" class="label">Email</label>
+                            <input type="email" id="email" name="email" class="input" required>
+                        </div>
+                        <div>
+                            <label for="phone" class="label">Phone</label>
+                            <input type="tel" id="phone" name="phone" class="input" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <h2 class="text-2xl font-bold">Event Details</h2>
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div>
+                            <label for="event-date" class="label">Event Date</label>
+                            <input type="date" id="event-date" name="event-date" class="input" required>
+                        </div>
+                        <div>
+                            <label for="event-time" class="label">Event Time</label>
+                            <input type="text" id="event-time" name="event-time" class="input" placeholder="e.g. 6:00 PM - 10:00 PM" required>
+                        </div>
+                    </div>
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div>
+                            <label for="event-type" class="label">Event Type</label>
+                            <select id="event-type" name="event-type" class="select" required>
+                                <option value="">Select event type</option>
+                                <option value="wedding">Wedding</option>
+                                <option value="corporate">Corporate Event</option>
+                                <option value="birthday">Birthday Party</option>
+                                <option value="graduation">Graduation</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="guests" class="label">Estimated Guest Count</label>
+                            <input type="number" id="guests" name="guests" class="input" required>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="venue" class="label">Venue Name & Address</label>
+                        <textarea id="venue" name="venue" rows="3" class="textarea" placeholder="Please provide the full venue address" required></textarea>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <h2 class="text-2xl font-bold">Package Selection</h2>
+                    <div>
+                        <label class="label">Select a Package</label>
+                        <div class="space-y-2">
+                            <label class="flex items-center space-x-3">
+                                <input type="radio" name="package" value="digital-booth" class="form-radio" required>
+                                <span>Digital Photo Booth - $100/hr</span>
+                            </label>
+                            <label class="flex items-center space-x-3">
+                                <input type="radio" name="package" value="360-booth" class="form-radio" required>
+                                <span>360 Photo Booth - $200/hr</span>
+                            </label>
+                            <label class="flex items-center space-x-3">
+                                <input type="radio" name="package" value="bundle" class="form-radio" required>
+                                <span>Bundle Package - $280/hr</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <h2 class="text-2xl font-bold">Add-ons</h2>
+                    <div>
+                        <label class="label">Select Add-ons (Optional)</label>
+                        <div class="space-y-2">
+                            <label class="flex items-center space-x-3">
+                                <input type="checkbox" name="addons" value="red-carpet" class="form-checkbox">
+                                <span>Red Carpet & Stanchions</span>
+                            </label>
+                            <label class="flex items-center space-x-3">
+                                <input type="checkbox" name="addons" value="props" class="form-checkbox">
+                                <span>Props</span>
+                            </label>
+                            <label class="flex items-center space-x-3">
+                                <input type="checkbox" name="addons" value="smoke-lighting" class="form-checkbox">
+                                <span>Smoke & Lighting</span>
+                            </label>
+                            <label class="flex items-center space-x-3">
+                                <input type="checkbox" name="addons" value="music" class="form-checkbox">
+                                <span>Music</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <label for="message" class="label">Additional Requests or Information</label>
+                    <textarea id="message" name="message" rows="4" class="textarea"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-full">Submit Booking Request</button>
+            </form>
+        </div>
+    </main>
+
+    <footer class="bg-primary text-primary-foreground py-8">
+        <div class="container mx-auto px-4 md:px-6 text-center">
+            <p>&copy; 2024 Austin 360 PhotoBooth. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
+

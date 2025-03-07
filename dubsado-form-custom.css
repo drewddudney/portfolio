@@ -1,0 +1,213 @@
+/* Main form container */
+.dubsado-form {
+  font-family: "Inter", sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Form title */
+.dubsado-form h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1e3a8a;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* Form sections */
+.dubsado-form .form-section {
+  margin-bottom: 2rem;
+}
+
+.dubsado-form .form-section h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1e3a8a;
+  margin-bottom: 1rem;
+}
+
+/* Labels */
+.dubsado-form label {
+  display: inline-block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #4b5563;
+  margin-bottom: 0.5rem;
+}
+
+/* Required field indicator */
+.dubsado-form label .required {
+  color: #dc2626;
+  margin-left: 0.25rem;
+}
+
+/* Input fields */
+.dubsado-form input[type="text"],
+.dubsado-form input[type="email"],
+.dubsado-form input[type="tel"],
+.dubsado-form input[type="date"],
+.dubsado-form input[type="number"],
+.dubsado-form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  transition: border-color 0.2s ease-in-out;
+  background-color: #ffffff;
+}
+
+.dubsado-form input[type="text"]:focus,
+.dubsado-form input[type="email"]:focus,
+.dubsado-form input[type="tel"]:focus,
+.dubsado-form input[type="date"]:focus,
+.dubsado-form input[type="number"]:focus,
+.dubsado-form textarea:focus {
+  outline: none;
+  border-color: #1e3a8a;
+  box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
+}
+
+/* Radio buttons and checkboxes */
+.dubsado-form input[type="radio"],
+.dubsado-form input[type="checkbox"] {
+  margin-right: 0.5rem;
+}
+
+/* Package selection and Add-ons */
+.dubsado-form input[type="radio"] + label,
+.dubsado-form input[type="checkbox"] + label {
+  font-weight: normal;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+.dubsado-form input[type="radio"] + label strong,
+.dubsado-form input[type="checkbox"] + label strong {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.dubsado-form input[type="radio"] + label span,
+.dubsado-form input[type="checkbox"] + label span {
+  display: block;
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-left: 1.5rem;
+}
+
+/* Package selection (Multiple Choice) */
+.dubsado-form .multiple-choice-option {
+  margin-bottom: 1rem;
+}
+
+.dubsado-form .multiple-choice-option label {
+  display: flex;
+  align-items: flex-start;
+  font-weight: normal;
+}
+
+.dubsado-form .multiple-choice-option input[type="radio"] {
+  margin-top: 0.25rem;
+  margin-right: 0.75rem;
+}
+
+.dubsado-form .multiple-choice-option .option-text {
+  flex: 1;
+}
+
+.dubsado-form .multiple-choice-option .option-title {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.dubsado-form .multiple-choice-option .option-description {
+  display: block;
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+/* Add-ons (Checkboxes) */
+.dubsado-form .checkbox-option {
+  margin-bottom: 1rem;
+}
+
+.dubsado-form .checkbox-option label {
+  display: flex;
+  align-items: flex-start;
+  font-weight: normal;
+}
+
+.dubsado-form .checkbox-option input[type="checkbox"] {
+  margin-top: 0.25rem;
+  margin-right: 0.75rem;
+}
+
+.dubsado-form .checkbox-option .option-text {
+  flex: 1;
+}
+
+.dubsado-form .checkbox-option .option-title {
+  display: inline;
+  font-weight: 700;
+}
+
+.dubsado-form .checkbox-option .option-description {
+  display: inline;
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+/* Submit button */
+.dubsado-form button[type="submit"] {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  background-color: #1e3a8a;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.dubsado-form button[type="submit"]:hover {
+  background-color: #1e40af;
+}
+
+/* Responsive grid for two-column layout */
+@media (min-width: 640px) {
+  .dubsado-form .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+}
+
+/* Error messages */
+.dubsado-form .error-message {
+  color: #dc2626;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+/* Success message */
+.dubsado-form .success-message {
+  background-color: #10b981;
+  color: #ffffff;
+  padding: 1rem;
+  border-radius: 0.375rem;
+  text-align: center;
+  margin-top: 2rem;
+}
+
